@@ -120,7 +120,7 @@ class listener implements EventSubscriberInterface
 
 		if ($this->config['log_new_user'] == true)
 		{
-			add_log('user', $user_id, 'LOG_USER_CREATED', $user_row['username']);
+			$phpbb_log->add('user', $user_id, 'LOG_USER_CREATED', $user_row['username']);
 		}
 	}
 
