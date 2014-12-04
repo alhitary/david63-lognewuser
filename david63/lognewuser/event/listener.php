@@ -32,11 +32,10 @@ class listener implements EventSubscriberInterface
 	* @param \phpbb\request\request $request phpBB request
 	* @access public
 	*/
-	public function __construct($config, $request)
+	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request)
 	{
 		$this->config	= $config;
 		$this->request	= $request;
-
 	}
 
 	/**
