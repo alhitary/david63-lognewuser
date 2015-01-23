@@ -32,10 +32,11 @@ class listener implements EventSubscriberInterface
 	* @param \phpbb\request\request $request phpBB request
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request)
+	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, $phpbb_log)
 	{
-		$this->config	= $config;
-		$this->request	= $request;
+		$this->config		= $config;
+		$this->request		= $request;
+		$this->phpbb_log	= $phpbb_log;
 	}
 
 	/**
@@ -119,7 +120,7 @@ class listener implements EventSubscriberInterface
 
 		if ($this->config['log_new_user'] == true)
 		{
-			$phpbb_log->add('user', $user_id, 'LOG_USER_CREATED', $user_row['username']);
+			$this->phpbb_log->add('user', $user_id, 'LOG_USER_CREATED', $user_row['username']);
 		}
 	}
 
