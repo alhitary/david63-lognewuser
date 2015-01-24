@@ -31,10 +31,16 @@ if (empty($lang) || !is_array($lang))
 // You do not need this where single placeholders are used, e.g. 'Message %d' is fine
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+//
+// Some characters you may want to copy&paste:
+// ’ » “ ” …
+//
 
 $lang = array_merge($lang, array(
 	'LOG_NEW_USER'			=> 'Log new user',
-	'LOG_NEW_USER_EXPLAIN'	=> 'Add an entry into the User Log when a new user registers.',
+	'LOG_NEW_USER_EXPLAIN'	=> 'Add an entry into the User logs when a new user registers.',
+
+	'LOG_NEW_USER_CREATED'	=> '<strong>New user created</strong>',
 ));
 
 ?>

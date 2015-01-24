@@ -4,5 +4,6 @@ services:
         arguments:
             - @config
             - @request
+            - @log
         tags:
             - { name: event.listener }

@@ -15,7 +15,7 @@ class version_1_0_0 extends \phpbb\db\migration\migration
 	{
 		return array(
 			array('config.add', array('lognewuser_version', '1.0.0')),
-			array('config.add', array('log_new_user', '1')),
+			array('config.add', array('log_new_user', '0')),
 		);
 	}
 }

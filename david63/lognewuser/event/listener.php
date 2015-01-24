@@ -25,18 +25,23 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\request\request */
 	protected $request;
 
+	/** @var \phpbb\log\log */
+	protected $log;
+
 	/**
 	* Constructor for listener
 	*
-	* @param \phpbb\config\config $config phpBB config
-	* @param \phpbb\request\request $request phpBB request
+	* @param \phpbb\config\config	$config		phpBB config
+	* @param \phpbb\request\request	$request	phpBB request
+	* @param \phpbb\log\log			$log		phpBB log
+	*
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, $phpbb_log)
+	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\log\log $log)
 	{
-		$this->config		= $config;
-		$this->request		= $request;
-		$this->phpbb_log	= $phpbb_log;
+		$this->config	= $config;
+		$this->request	= $request;
+		$this->log		= $log;
 	}
 
 	/**
@@ -49,7 +54,6 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.user_setup'					=> 'load_language_on_setup',
 			'core.acp_board_config_edit_add'	=> 'acp_board_settings',
 			'core.user_add_after'				=> 'add_new_user',
 		);
@@ -90,23 +94,6 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
-	* Load common log new user language files during user setup
-	*
-	* @param object $event The event object
-	* @return null
-	* @access public
-	*/
-	public function load_language_on_setup($event)
-	{
-		$lang_set_ext	= $event['lang_set_ext'];
-		$lang_set_ext[]	= array(
-			'ext_name' => 'david63/lognewuser',
-			'lang_set' => 'lognewuser',
-		);
-		$event['lang_set_ext'] = $lang_set_ext;
-	}
-
-	/**
 	* Log the new user
 	*
 	* @param object $event The event object
@@ -120,8 +107,7 @@ class listener implements EventSubscriberInterface
 
 		if ($this->config['log_new_user'] == true)
 		{
-			$this->phpbb_log->add('user', $user_id, 'LOG_USER_CREATED', $user_row['username']);
+			$this->log->add('user', $user_id, $user_row['user_ip'], 'LOG_NEW_USER_CREATED');
 		}
 	}
-
 }
