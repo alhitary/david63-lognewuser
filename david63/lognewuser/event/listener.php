@@ -107,7 +107,7 @@ class listener implements EventSubscriberInterface
 
 		if ($this->config['log_new_user'] == true)
 		{
-			$this->log->add('user', $user_id, $user_row['user_ip'], 'LOG_NEW_USER_CREATED');
+			$this->log->add('user', $user_id, $user_row['user_ip'], 'LOG_NEW_USER_CREATED', time(), array('reportee_id' => $user_id));
 		}
 	}
 }
