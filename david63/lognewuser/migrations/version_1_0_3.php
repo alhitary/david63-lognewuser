@@ -9,7 +9,7 @@
 
 namespace david63\lognewuser\migrations;
 
-class version_1_0_1 extends \phpbb\db\migration\migration
+class version_1_0_3 extends \phpbb\db\migration\migration
 {
 	static public function depends_on()
 	{
@@ -18,13 +18,13 @@ class version_1_0_1 extends \phpbb\db\migration\migration
 
 	public function effectively_installed()
 	{
-		return isset($this->config['lognewuser_version']) && version_compare($this->config['lognewuser_version'], '1.0.1', '>=');
+		return isset($this->config['lognewuser_version']) && version_compare($this->config['lognewuser_version'], '1.0.3', '>=');
 	}
 
 		public function update_data()
 	{
 		return array(
-			array('config.update', array('lognewuser_version', '1.0.1')),
+			array('config.update', array('lognewuser_version', '1.0.3')),
 			array('config.remove', array('log_new_user')),
 		);
 	}
