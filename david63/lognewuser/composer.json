@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Adds an entry in the User log when a new user registers",
 	"homepage": "",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"time": "2014-11-30",
 	"license": "GPL-2.0",
 	"authors": [{
@@ -14,7 +14,7 @@
 			"role": "Developer"
 		}],
 	"require": {
-        "php": ">=5.3",
+        "php": ">=5.3.3",
         "composer/installers": "~1.0"
     },
 	"extra": {

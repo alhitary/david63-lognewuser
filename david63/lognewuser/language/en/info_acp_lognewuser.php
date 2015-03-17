@@ -37,10 +37,5 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'LOG_NEW_USER'			=> 'Log new user',
-	'LOG_NEW_USER_EXPLAIN'	=> 'Add an entry into the User logs when a new user registers.',
-
 	'LOG_NEW_USER_CREATED'	=> '<strong>New user created</strong>',
 ));
-
-?>
