@@ -16,15 +16,10 @@ class version_1_0_3 extends \phpbb\db\migration\migration
 		return array('david63\lognewuser\migrations\version_1_0_0');
 	}
 
-	public function effectively_installed()
-	{
-		return isset($this->config['lognewuser_version']) && version_compare($this->config['lognewuser_version'], '1.0.3', '>=');
-	}
-
-		public function update_data()
+	public function update_data()
 	{
 		return array(
-			array('config.update', array('lognewuser_version', '1.0.3')),
+			array('config.remove', array('lognewuser_version')),
 			array('config.remove', array('log_new_user')),
 		);
 	}
