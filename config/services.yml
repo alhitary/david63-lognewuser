@@ -1,0 +1,7 @@
+services:
+    david63.lognewuser.listener:
+        class: david63\lognewuser\event\listener
+        arguments:
+            - '@log'
+        tags:
+            - { name: event.listener }
