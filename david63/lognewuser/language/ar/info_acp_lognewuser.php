@@ -38,10 +38,5 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'LOG_NEW_USER'			=> 'سِجِلّ عضو جديد',
-	'LOG_NEW_USER_EXPLAIN'	=> 'إضافة فقرة إلى سجلات العضو عند تسجيل عضو جديد.',
-
 	'LOG_NEW_USER_CREATED'	=> '<strong>تم تسجيل عضو جديد</strong>',
 ));
-
-?>
